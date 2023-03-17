@@ -172,33 +172,45 @@
            
             $("#MyForm").validate({
                 rules: {
-                    'UN': {
+                    UN: {
                         required: true,
                         minlength:2,
                         maxlength:20,
                         pattern: /^[a-zA-Z]+$/
                     },
-                    'pwd': {
+                    pwd: {
                         required:true,
                         pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$#])[A-Za-z\d@$#]{8,16}$/
                     },
-                    'email': {
+                    email: {
                         required:true,
                         email:true,
                     },
-                    'mob': {
+                    mob: {
                         required:true,
                         pattern: /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/
                     },
                 },
                 messages: {
-                    'UN':{required:"please enter username",
+                    UN:{
+                    required:"please enter username",
+                    minlength:"name must be minimum of two characters",
+                    maxlength:"name must be less than 20 characters",
                     pattern:"Please enter a valid User Name."
                 },
-                    'pwd': "Please enter a valid password.",
-                    'email': "Please enter Email in proper format.",
-                    'mob': "Please enter a mobile number",
+                    pwd:{
+                    required:"Please enter a valid password.",
+                    pattern:"password  cprrect format"
+                    } ,
+                    email:{
+                    required:"please enter email",
+                    email:"Please enter Email in proper format"
+                    },
+                    mob:{ 
+                        required:"Please enter a mobile number",
+                        pattern:"number cant contain any characters"
                 }
+            }
             });
         });
    
